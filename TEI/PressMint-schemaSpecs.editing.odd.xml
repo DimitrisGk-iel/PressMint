@@ -245,13 +245,41 @@
   
   <elementSpec ident="zone" xml:id="gi-zone" module="transcr" mode="change">
     <attList>
+      <pm:attPreserve ident="xml:id"/>
+      <pm:attPreserve ident="xml:lang"/>
+      <pm:attPreserve ident="n"/>
+      <pm:attPreserve ident="facs"/>
+      <pm:attPreserve ident="rotate"/>
+      <pm:attPreserve ident="change"/>
+      <pm:attPreserve ident="corresp"/>
+      <pm:attPreserve ident="synch"/>
+      <pm:attPreserve ident="sameAs"/>
+      <pm:attPreserve ident="copyOf"/>
+      <pm:attPreserve ident="next"/>
+      <pm:attPreserve ident="prev"/>
+      <pm:attPreserve ident="exclude"/>
+      <pm:attPreserve ident="select"/>
+      <pm:attPreserve ident="rend"/>
+      <pm:attPreserve ident="style"/>
+      <pm:attPreserve ident="rendition"/>
+      <pm:attPreserve ident="cert"/>
+      <pm:attPreserve ident="resp"/>
+      <pm:attPreserve ident="source"/>
+      <pm:attPreserve ident="start"/>
+      <pm:attPreserve ident="ulx"/>
+      <pm:attPreserve ident="uly"/>
+      <pm:attPreserve ident="lrx"/>
+      <pm:attPreserve ident="lry"/>
+      <pm:attPreserve ident="points"/>
+      <pm:attPreserve ident="subtype"/>
+      <pm:attPreserve ident="hand"/>
       <attDef ident="type" mode="replace" usage="rec">
         <desc versionDate="2026-06-14" xml:lang="en">characterizes the zone in terms of its text content.</desc>
         <valList type="closed">
           <valItem ident="block">
             <desc xml:lang="en">a general purpose type denoting a block (i.e. a rectangle) of text</desc>
           </valItem>
-          <valItem ident="page_text">
+          <valItem ident="pageBody">
             <desc xml:lang="en">a zone encompasing the page text, i.e. the page without the header, page numbers, footer etc.</desc>
           </valItem>
           <valItem ident="column">
@@ -271,6 +299,12 @@
           </valItem>
           <valItem ident="table">
             <desc xml:lang="en">a table</desc>
+          </valItem>
+          <valItem ident="word">
+            <desc xml:lang="en">an individual word</desc>
+          </valItem>
+          <valItem ident="token">
+            <desc xml:lang="en">an individual token</desc>
           </valItem>
         </valList>
       </attDef>
