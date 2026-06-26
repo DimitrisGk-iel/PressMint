@@ -117,6 +117,12 @@
     <xsl:apply-templates/>
   </xsl:template>
   
+  <xsl:template match="tei:pc[@force and not(@msd)]">
+    <xsl:if test="./following-sibling::tei:lb">
+      <xsl:message select="concat('WARN: hyphenation ',text(),' not followed by lb')"/>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="tei:w | tei:pc">
     <!-- 1/ID -->
     <xsl:apply-templates mode="number" select="."/>
@@ -384,4 +390,3 @@
     </xsl:choose>
   </xsl:function>
 </xsl:stylesheet>
-
