@@ -68,12 +68,28 @@
   <xsl:template mode="plain" match="tei:*">
     <xsl:apply-templates mode="plain"/>
   </xsl:template>
+  <!-- do not print hyphen-->
+  <xsl:template mode="plain" match="tei:pc[@force and not(@msd)]">
+    <xsl:message>WARN: hyphen outside token</xsl:message>
+  </xsl:template>
   <xsl:template mode="plain" match="tei:w | tei:pc">
-    <xsl:value-of select="normalize-space(.)"/>
+    <xsl:variable name="text">
+      <xsl:apply-templates mode="text-extract"/>
+    </xsl:variable>
+    <xsl:value-of select="normalize-space($text)"/>
     <xsl:call-template name="SpaceAfter">
       <xsl:with-param name="yes" select="'&#32;'"/>
     </xsl:call-template>
   </xsl:template>
+
+  <xsl:template mode="text-extract" match="text()">
+    <xsl:value-of select="."/>
+  </xsl:template>
+  <xsl:template mode="text-extract" match="tei:*">
+    <xsl:apply-templates mode="text-extract"/>
+  </xsl:template>
+  <!-- do not print hyphen-->
+  <xsl:template mode="text-extract" match="tei:pc[@force and not(@msd)]"/>
 
   <xsl:template match="tei:note | tei:desc">
     <!-- We just ignore these (and parents of desc), is there anything else we could do? -->
