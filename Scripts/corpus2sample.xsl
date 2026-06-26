@@ -57,7 +57,7 @@
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:output method="xml" indent="yes"/>
+  <xsl:output method="xml" indent="yes" suppress-indentation="w pc"/>
   
   <xsl:template match="/">
     <!-- Output root file -->
